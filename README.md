@@ -1,0 +1,2 @@
+# Ubiquiti
+Ubiquiti AirMax6
