@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="Ubiquiti">
+   <resourceType name="ubntRadioEntry" label="ubntRadioEntry" resourceLabel="Radio: ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="ubntRadioRssiEntry" label="ubntRadioRssiEntry" resourceLabel="Radio RSSI: ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="ubntAirMaxEntry" label="ubntAirMaxEntry" resourceLabel="AirMax Stats: ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="ubntAirSyncEntry" label="ubntAirSyncEntry" resourceLabel="AirSync Stats: ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="ubntAirSelEntry" label="ubntAirSelEntry" resourceLabel="AirSelect Stats: ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="ubntWlStatEntry" label="ubntWlStatEntry" resourceLabel="Wireless Stats: ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <resourceType name="ubntStaEntry" label="ubntStaEntry" resourceLabel="Stations: ${index}">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.collection.support.IndexStorageStrategy"/>
+   </resourceType>
+   <group name="ubntRadioTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.1.1.1" instance="ubntRadioEntry" alias="ubntRadioIndex" type="String"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.1.1.3" instance="ubntRadioEntry" alias="ubntRadioCCode" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.1.1.4" instance="ubntRadioEntry" alias="ubntRadioFreq" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.1.1.6" instance="ubntRadioEntry" alias="ubntRadioTxPower" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.1.1.7" instance="ubntRadioEntry" alias="ubntRadioDistance" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.1.1.8" instance="ubntRadioEntry" alias="ubntRadioChainmask" type="Gauge32"/>
+   </group>
+   <group name="ubntRadioRssiTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.2.1.1" instance="ubntRadioRssiEntry" alias="ubntRadioRssiIndex" type="String"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.2.1.2" instance="ubntRadioRssiEntry" alias="ubntRadioRssi" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.2.1.3" instance="ubntRadioRssiEntry" alias="ubntRadioRssiMgmt" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.2.1.4" instance="ubntRadioRssiEntry" alias="ubntRadioRssiExt" type="Gauge32"/>
+   </group>
+   <group name="ubntAirMaxTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.6.1.1" instance="ubntAirMaxEntry" alias="ubntAirMaxIfIndex" type="String"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.6.1.2" instance="ubntAirMaxEntry" alias="ubntAirMaxEnabled" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.6.1.3" instance="ubntAirMaxEntry" alias="ubntAirMaxQuality" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.6.1.4" instance="ubntAirMaxEntry" alias="ubntAirMaxCapacity" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.6.1.5" instance="ubntAirMaxEntry" alias="ubntAirMaxPriority" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.6.1.6" instance="ubntAirMaxEntry" alias="ubntAirMaxNoAck" type="Gauge32"/>
+   </group>
+   <group name="ubntAirSyncTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.3.1.1" instance="ubntAirSyncEntry" alias="ubntAirSyncIfIndex" type="String"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.3.1.2" instance="ubntAirSyncEntry" alias="ubntAirSyncMode" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.3.1.3" instance="ubntAirSyncEntry" alias="ubntAirSyncCount" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.3.1.4" instance="ubntAirSyncEntry" alias="ubntAirSyncDownUtil" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.3.1.5" instance="ubntAirSyncEntry" alias="ubntAirSyncUpUtil" type="Gauge32"/>
+   </group>
+   <group name="ubntAirSelTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.4.1.1" instance="ubntAirSelEntry" alias="ubntAirSelIfIndex" type="String"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.4.1.2" instance="ubntAirSelEntry" alias="ubntAirSelEnabled" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.4.1.3" instance="ubntAirSelEntry" alias="ubntAirSelInterval" type="Gauge32"/>
+   </group>
+   <group name="ubntWlStatTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.1" instance="ubntWlStatEntry" alias="ubntWlStatIndex" type="String"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.2" instance="ubntWlStatEntry" alias="ubntWlStatSsid" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.5" instance="ubntWlStatEntry" alias="ubntWlStatSignal" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.6" instance="ubntWlStatEntry" alias="ubntWlStatRssi" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.7" instance="ubntWlStatEntry" alias="ubntWlStatCcq" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.8" instance="ubntWlStatEntry" alias="ubntWlStatNoisFloor" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.9" instance="ubntWlStatEntry" alias="ubntWlStatTxRate" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.10" instance="ubntWlStatEntry" alias="ubntWlStatRxRate" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.12" instance="ubntWlStatEntry" alias="ubntWlStatWdsEnable" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.13" instance="ubntWlStatEntry" alias="ubntWlStatApRepeate" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.14" instance="ubntWlStatEntry" alias="ubntWlStatChanWidth" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.5.1.15" instance="ubntWlStatEntry" alias="ubntWlStatStaCount" type="Gauge32"/>
+   </group>
+   <group name="ubntStaTable" ifType="all">
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.1" instance="ubntStaEntry" alias="ubntStaMac" type="String"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.2" instance="ubntStaEntry" alias="ubntStaName" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.3" instance="ubntStaEntry" alias="ubntStaSignal" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.4" instance="ubntStaEntry" alias="ubntStaNoiseFloor" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.5" instance="ubntStaEntry" alias="ubntStaDistance" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.6" instance="ubntStaEntry" alias="ubntStaCcq" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.7" instance="ubntStaEntry" alias="ubntStaAmp" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.8" instance="ubntStaEntry" alias="ubntStaAmq" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.9" instance="ubntStaEntry" alias="ubntStaAmc" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.11" instance="ubntStaEntry" alias="ubntStaTxRate" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.12" instance="ubntStaEntry" alias="ubntStaRxRate" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.13" instance="ubntStaEntry" alias="ubntStaTxBytes" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.14" instance="ubntStaEntry" alias="ubntStaRxBytes" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.15" instance="ubntStaEntry" alias="ubntStaConnTime" type="timeticks"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.16" instance="ubntStaEntry" alias="ubntStaLocalCINR" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.17" instance="ubntStaEntry" alias="ubntStaTxCapacity" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.18" instance="ubntStaEntry" alias="ubntStaRxCapacity" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.19" instance="ubntStaEntry" alias="ubntStaTxAirtime" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.20" instance="ubntStaEntry" alias="ubntStaRxAirtime" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.7.1.21" instance="ubntStaEntry" alias="ubntStaTxLatency" type="Gauge32"/>
+   </group>
+   <group name="ubntHostInfo" ifType="ignore">
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.8.1" instance="0" alias="ubntHostLocaltime" type="octetstring"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.8.2" instance="0" alias="ubntHostNetrole" type="string"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.8.3" instance="0" alias="ubntHostCpuLoad" type="Gauge32"/>
+      <mibObj oid=".1.3.6.1.4.1.41112.1.4.8.4" instance="0" alias="ubntHostTemperature" type="Gauge32"/>
+   </group>
+  <systemDef name="Ubiquiti">
+    <sysoidMask>.1.3.6.1.4.1.41112.1.4</sysoidMask>
+    <collect>
+      <includeGroup>ubntRadioTable</includeGroup>
+      <includeGroup>ubntRadioRssiTable</includeGroup>
+      <includeGroup>ubntAirMaxTable</includeGroup>
+      <includeGroup>ubntAirSyncTable</includeGroup>
+      <includeGroup>ubntAirSelTable</includeGroup>
+      <includeGroup>ubntWlStatTable</includeGroup>
+      <includeGroup>ubntStaTable</includeGroup>
+    </collect>
+  </systemDef>
+</datacollection-group>
