@@ -1,23 +1,23 @@
-# Ubiquiti
+= Ubiquiti
 
 OpenNMS configuration for Ubiquiti AirMax 6
 
-## Installation
+== Installation
 
 .Download and install from GitHub
 [source, bash]
 ----
-cd $OPENNMS_HOME/etc/modules-available
+mkdir ${HOME}/opennms-config-workspace
+cd ${HOME}/opennms-config-workspace
 git clone https://github.com/opennms-config-modules/ubiquiti.git
 ----
 
-### Datacollection
+=== Data Collection
 
 .Install datacollection configuration
 [source, bash]
 ----
-cd $OPENNMS_HOME/etc/datacollection
-ln -s ../modules-available/ubiquiti/datacollection/*.xml .
+cp ${HOME}/opennms-config-workspace/ubiquiti/datacollection/*.xml ${OPENNMS_HOME}/etc/datacollection
 ----
 
 .Include in datacollection-config.xml
@@ -26,12 +26,10 @@ ln -s ../modules-available/ubiquiti/datacollection/*.xml .
 <include-collection dataCollectionGroup="Ubiquiti"/>
 ----
 
-### Graph report definitions
+=== Graph Report Definitions
 
 .Install graph report definitions
 [source, bash]
 ----
-cd $OPENNMS_HOME/etc/snmp-graph.properties.d
-ln -s ../modules-available/ubiquiti/graphs/*.properties .
+cp ${HOME}/opennms-config-workspace/ubiquiti/graphs/*.properties ${OPENNMS_HOME}/etc/snmp-graph.properties.d
 ----
-
