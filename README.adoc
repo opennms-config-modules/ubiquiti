@@ -33,3 +33,7 @@ cp ${HOME}/opennms-config-workspace/ubiquiti/datacollection/*.xml ${OPENNMS_HOME
 ----
 cp ${HOME}/opennms-config-workspace/ubiquiti/graphs/*.properties ${OPENNMS_HOME}/etc/snmp-graph.properties.d
 ----
+
+== Grafana ==
+
+Import dashboard https://grafana.com/dashboards/6498[6498].
