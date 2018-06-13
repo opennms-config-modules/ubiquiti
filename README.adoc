@@ -1,6 +1,6 @@
 = Ubiquiti
 
-OpenNMS configuration for Ubiquiti AirMax 6
+OpenNMS configuration files for Ubiquiti AirMax 6 & 8.
 
 == Installation
 
