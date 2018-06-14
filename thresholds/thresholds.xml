@@ -1,0 +1,11 @@
+<threshold description="Signal Strength Fluctuation" type="relativeChange" ds-type="node"
+	value="1.15" rearm="0.0" trigger="1"
+	ds-label="ubntWlStatSignal"
+	triggeredUEI="uei.opennms.org/threshold/ubiquiti/signal/strength/change"
+	filterOperator="OR" ds-name="ubntWlStatSignal"/>
+
+<threshold description="Signal Strength Fluctuation" type="relativeChange" ds-type="node"
+	value="0.85" rearm="0.0" trigger="1"
+	ds-label="ubntWlStatSignal"
+	triggeredUEI="uei.opennms.org/threshold/ubiquiti/signal/strength/change"
+	filterOperator="OR" ds-name="ubntWlStatSignal"/>
