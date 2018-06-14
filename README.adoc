@@ -34,6 +34,14 @@ cp ${HOME}/opennms-config-workspace/ubiquiti/datacollection/*.xml ${OPENNMS_HOME
 cp ${HOME}/opennms-config-workspace/ubiquiti/graphs/*.properties ${OPENNMS_HOME}/etc/snmp-graph.properties.d
 ----
 
+=== Monitor ===
+
+`${home}/monitors/poller-configuration.xml` contains an example to check DFS status.
+
+=== Thresholding ===
+
+`${home}/threholds/thresholds.xml`contains an example to check signal strength fluctuations.
+
 == Grafana ==
 
 Import dashboard https://grafana.com/dashboards/6498[6498].
