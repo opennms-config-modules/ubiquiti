@@ -1,6 +1,6 @@
 = Ubiquiti
 
-OpenNMS configuration for Ubiquiti AirMax 6
+OpenNMS configuration files for Ubiquiti AirMax 6 & 8.
 
 == Installation
 
@@ -33,3 +33,7 @@ cp ${HOME}/opennms-config-workspace/ubiquiti/datacollection/*.xml ${OPENNMS_HOME
 ----
 cp ${HOME}/opennms-config-workspace/ubiquiti/graphs/*.properties ${OPENNMS_HOME}/etc/snmp-graph.properties.d
 ----
+
+== Grafana ==
+
+Import dashboard https://grafana.com/dashboards/6498[6498].
