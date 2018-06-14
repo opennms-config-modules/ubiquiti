@@ -40,7 +40,7 @@ cp ${HOME}/opennms-config-workspace/ubiquiti/graphs/*.properties ${OPENNMS_HOME}
 
 === Thresholding ===
 
-`${home}/threholds/thresholds.xml`contains an example to check signal strength fluctuations.
+`${home}/threholds/thresholds.xml` contains an example to check signal strength fluctuations.
 
 == Grafana ==
 
