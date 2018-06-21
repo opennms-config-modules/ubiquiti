@@ -1,0 +1,4838 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_OPENNMS_PERFORMANCE",
+      "label": "OpenNMS Performance",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "opennms-helm-performance-datasource",
+      "pluginName": "OpenNMS Performance"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "5.1.3"
+    },
+    {
+      "type": "datasource",
+      "id": "opennms-helm-performance-datasource",
+      "name": "OpenNMS Performance",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": "5.0.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": 6498,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1529075254520,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 41,
+      "panels": [],
+      "repeat": null,
+      "title": "Info",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${DS_OPENNMS_PERFORMANCE}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 0,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 15,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "filter": {
+            "backend": "Java",
+            "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+            "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+            "name": "Chomp",
+            "parameter": [
+              {
+                "default": "true",
+                "description": "When set, leading and trailing rows containing NaNs will be removed",
+                "displayName": "Strip",
+                "key": "stripNaNs",
+                "required": false,
+                "type": "boolean"
+              },
+              {
+                "default": "0",
+                "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                "displayName": "Cutoff",
+                "key": "cutoffDate",
+                "required": false,
+                "type": "double"
+              }
+            ]
+          },
+          "filterParameters": {
+            "cutoffDate": "300000",
+            "stripNaNs": "true"
+          },
+          "refId": "B",
+          "type": "filter"
+        },
+        {
+          "attribute": "ubntRadioMode",
+          "label": "Mode",
+          "nodeId": "$node",
+          "refId": "A",
+          "resourceId": "ubntRadioEntry[1]",
+          "type": "attribute"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "10m",
+      "timeShift": null,
+      "title": "Radio Mode",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        },
+        {
+          "op": "=",
+          "text": "Station",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "AP",
+          "value": "2"
+        },
+        {
+          "op": "=",
+          "text": "AP Repeater",
+          "value": "3"
+        },
+        {
+          "op": "=",
+          "text": "AP WDS",
+          "value": "4"
+        }
+      ],
+      "valueName": "current"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${DS_OPENNMS_PERFORMANCE}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 4,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 13,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "filter": {
+            "backend": "Java",
+            "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+            "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+            "name": "Chomp",
+            "parameter": [
+              {
+                "default": "true",
+                "description": "When set, leading and trailing rows containing NaNs will be removed",
+                "displayName": "Strip",
+                "key": "stripNaNs",
+                "required": false,
+                "type": "boolean"
+              },
+              {
+                "default": "0",
+                "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                "displayName": "Cutoff",
+                "key": "cutoffDate",
+                "required": false,
+                "type": "double"
+              }
+            ]
+          },
+          "filterParameters": {
+            "cutoffDate": "300000",
+            "stripNaNs": "true"
+          },
+          "refId": "B",
+          "type": "filter"
+        },
+        {
+          "attribute": "ubntHostNetRole",
+          "label": "TDD",
+          "nodeId": "$node",
+          "refId": "A",
+          "resourceId": "nodeSnmp[]",
+          "type": "attribute"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "10m",
+      "timeShift": null,
+      "title": "Net Role",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        },
+        {
+          "op": "=",
+          "text": "Bridge",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "Router",
+          "value": "2"
+        },
+        {
+          "op": "=",
+          "text": "SOHO",
+          "value": "3"
+        },
+        {
+          "op": "=",
+          "text": "unknown",
+          "value": "0"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${DS_OPENNMS_PERFORMANCE}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 7,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 14,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "filter": {
+            "backend": "Java",
+            "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+            "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+            "name": "Chomp",
+            "parameter": [
+              {
+                "default": "true",
+                "description": "When set, leading and trailing rows containing NaNs will be removed",
+                "displayName": "Strip",
+                "key": "stripNaNs",
+                "required": false,
+                "type": "boolean"
+              },
+              {
+                "default": "0",
+                "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                "displayName": "Cutoff",
+                "key": "cutoffDate",
+                "required": false,
+                "type": "double"
+              }
+            ]
+          },
+          "filterParameters": {
+            "cutoffDate": "300000",
+            "stripNaNs": "true"
+          },
+          "refId": "B",
+          "type": "filter"
+        },
+        {
+          "attribute": "ubntAirMaxPriority",
+          "label": "Prio",
+          "nodeId": "$node",
+          "refId": "A",
+          "resourceId": "ubntAirMaxEntry[1]",
+          "type": "attribute"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "10m",
+      "timeShift": null,
+      "title": "AirMax Prio",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        },
+        {
+          "op": "=",
+          "text": "Medium",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "Low",
+          "value": "2"
+        },
+        {
+          "op": "=",
+          "text": "none",
+          "value": "3"
+        },
+        {
+          "op": "=",
+          "text": "High",
+          "value": "0"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${DS_OPENNMS_PERFORMANCE}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 9,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 46,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "filter": {
+            "backend": "Java",
+            "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+            "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+            "name": "Chomp",
+            "parameter": [
+              {
+                "default": "true",
+                "description": "When set, leading and trailing rows containing NaNs will be removed",
+                "displayName": "Strip",
+                "key": "stripNaNs",
+                "required": false,
+                "type": "boolean"
+              },
+              {
+                "default": "0",
+                "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                "displayName": "Cutoff",
+                "key": "cutoffDate",
+                "required": false,
+                "type": "double"
+              }
+            ]
+          },
+          "filterParameters": {
+            "cutoffDate": "300000",
+            "stripNaNs": "true"
+          },
+          "refId": "B",
+          "type": "filter"
+        },
+        {
+          "attribute": "ubntGpsHDOP",
+          "label": "HDOP",
+          "nodeId": "$node",
+          "refId": "A",
+          "resourceId": "nodeSnmp[]",
+          "type": "attribute"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "10m",
+      "timeShift": null,
+      "title": "HDOP",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${DS_OPENNMS_PERFORMANCE}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 11,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 16,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "filter": {
+            "backend": "Java",
+            "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+            "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+            "name": "Chomp",
+            "parameter": [
+              {
+                "default": "true",
+                "description": "When set, leading and trailing rows containing NaNs will be removed",
+                "displayName": "Strip",
+                "key": "stripNaNs",
+                "required": false,
+                "type": "boolean"
+              },
+              {
+                "default": "0",
+                "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                "displayName": "Cutoff",
+                "key": "cutoffDate",
+                "required": false,
+                "type": "double"
+              }
+            ]
+          },
+          "filterParameters": {
+            "cutoffDate": "300000",
+            "stripNaNs": "true"
+          },
+          "refId": "C",
+          "type": "filter"
+        },
+        {
+          "attribute": "ubntAirSyncMode",
+          "label": "SyncMode",
+          "nodeId": "$node",
+          "refId": "A",
+          "resourceId": "ubntAirSyncEntry[1]",
+          "type": "attribute"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "10m",
+      "timeShift": null,
+      "title": "AirSync Mode",
+      "type": "singlestat",
+      "valueFontSize": "50%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        },
+        {
+          "op": "=",
+          "text": "Master",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "Slave",
+          "value": "2"
+        },
+        {
+          "op": "=",
+          "text": "disabled",
+          "value": "0"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${DS_OPENNMS_PERFORMANCE}",
+      "decimals": 2,
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 2,
+        "x": 14,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 24,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "GHz",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "filter": {
+            "backend": "Java",
+            "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+            "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+            "name": "Chomp",
+            "parameter": [
+              {
+                "default": "true",
+                "description": "When set, leading and trailing rows containing NaNs will be removed",
+                "displayName": "Strip",
+                "key": "stripNaNs",
+                "required": false,
+                "type": "boolean"
+              },
+              {
+                "default": "0",
+                "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                "displayName": "Cutoff",
+                "key": "cutoffDate",
+                "required": false,
+                "type": "double"
+              }
+            ]
+          },
+          "filterParameters": {
+            "cutoffDate": "300000",
+            "stripNaNs": "true"
+          },
+          "refId": "C",
+          "type": "filter"
+        },
+        {
+          "attribute": "ubntRadioFreq",
+          "hide": true,
+          "label": "FrequencyRaw",
+          "nodeId": "$node",
+          "refId": "A",
+          "resourceId": "ubntRadioEntry[1]",
+          "type": "attribute"
+        },
+        {
+          "expression": "FrequencyRaw / 1000",
+          "label": "Frequency",
+          "refId": "B",
+          "type": "expression"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "10m",
+      "timeShift": null,
+      "title": "Frequency",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        },
+        {
+          "op": "=",
+          "text": "ON",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "OFF",
+          "value": "2"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${DS_OPENNMS_PERFORMANCE}",
+      "format": "none",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 27,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "MHz",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "filter": {
+            "backend": "Java",
+            "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+            "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+            "name": "Chomp",
+            "parameter": [
+              {
+                "default": "true",
+                "description": "When set, leading and trailing rows containing NaNs will be removed",
+                "displayName": "Strip",
+                "key": "stripNaNs",
+                "required": false,
+                "type": "boolean"
+              },
+              {
+                "default": "0",
+                "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                "displayName": "Cutoff",
+                "key": "cutoffDate",
+                "required": false,
+                "type": "double"
+              }
+            ]
+          },
+          "filterParameters": {
+            "cutoffDate": "300000",
+            "stripNaNs": "true"
+          },
+          "refId": "B",
+          "type": "filter"
+        },
+        {
+          "attribute": "ubntWlStatChanWidth",
+          "hide": false,
+          "label": "Bandwidth",
+          "nodeId": "$node",
+          "refId": "A",
+          "resourceId": "ubntWlStatEntry[1]",
+          "type": "attribute"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "10m",
+      "timeShift": null,
+      "title": "Bandwidth",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        },
+        {
+          "op": "=",
+          "text": "ON",
+          "value": "1"
+        },
+        {
+          "op": "=",
+          "text": "OFF",
+          "value": "2"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorValue": false,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "${DS_OPENNMS_PERFORMANCE}",
+      "decimals": null,
+      "format": "lengthm",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 20,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 25,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "filter": {
+            "backend": "Java",
+            "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+            "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+            "name": "Chomp",
+            "parameter": [
+              {
+                "default": "true",
+                "description": "When set, leading and trailing rows containing NaNs will be removed",
+                "displayName": "Strip",
+                "key": "stripNaNs",
+                "required": false,
+                "type": "boolean"
+              },
+              {
+                "default": "0",
+                "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                "displayName": "Cutoff",
+                "key": "cutoffDate",
+                "required": false,
+                "type": "double"
+              }
+            ]
+          },
+          "filterParameters": {
+            "cutoffDate": "300000",
+            "stripNaNs": "true"
+          },
+          "refId": "B",
+          "type": "filter"
+        },
+        {
+          "attribute": "ubntRadioDistance",
+          "hide": false,
+          "label": "Distance",
+          "nodeId": "$node",
+          "refId": "A",
+          "resourceId": "ubntRadioEntry[1]",
+          "type": "attribute"
+        }
+      ],
+      "thresholds": "",
+      "timeFrom": "10m",
+      "timeShift": null,
+      "title": "Distance",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "avg"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 4
+      },
+      "id": 42,
+      "panels": [
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "#5195ce",
+            "rgb(119, 119, 119)",
+            "rgb(119, 119, 119)"
+          ],
+          "datasource": "OpenNMS Performance",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 4,
+            "x": 0,
+            "y": 5
+          },
+          "hideTimeOverride": true,
+          "id": 10,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntAirMaxNoAck",
+              "label": "AP",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntAirMaxEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "1.1,2.1",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "",
+          "type": "singlestat",
+          "valueFontSize": "50%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            },
+            {
+              "op": "=",
+              "text": "NoAck",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "NoAck",
+              "value": "2"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "#5195ce",
+            "rgb(119, 119, 119)",
+            "rgb(119, 119, 119)"
+          ],
+          "datasource": "OpenNMS Performance",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 2,
+            "x": 4,
+            "y": 5
+          },
+          "hideTimeOverride": true,
+          "id": 9,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntAirMaxEnabl",
+              "label": "AP",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntAirMaxEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "1.1,2.1",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "",
+          "transparent": false,
+          "type": "singlestat",
+          "valueFontSize": "50%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            },
+            {
+              "op": "=",
+              "text": "AirMax",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "AirMax",
+              "value": "2"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "#5195ce",
+            "rgb(119, 119, 119)",
+            "rgb(119, 119, 119)"
+          ],
+          "datasource": "OpenNMS Performance",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 2,
+            "x": 6,
+            "y": 5
+          },
+          "hideTimeOverride": true,
+          "id": 7,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntWlStatHideSSID",
+              "label": "AS",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntWlStatEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "1.1,2.1",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "",
+          "type": "singlestat",
+          "valueFontSize": "50%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            },
+            {
+              "op": "=",
+              "text": "Hide SSID",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "Hide SSID",
+              "value": "2"
+            }
+          ],
+          "valueName": "current"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "#299c46",
+            "rgb(119, 119, 119)",
+            "rgb(119, 119, 119)"
+          ],
+          "datasource": "OpenNMS Performance",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 2,
+            "x": 8,
+            "y": 5
+          },
+          "hideTimeOverride": true,
+          "id": 11,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntAirMaxGpsSync",
+              "label": "GpsSync",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntAirMaxEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "1.1,2.1",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "",
+          "type": "singlestat",
+          "valueFontSize": "50%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "no GPS",
+              "value": "null"
+            },
+            {
+              "op": "=",
+              "text": "GPS Sync",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "GPS Sync",
+              "value": "2"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "rgb(119, 119, 119)",
+            "#5195ce",
+            "rgb(119, 119, 119)"
+          ],
+          "datasource": "OpenNMS Performance",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 4,
+            "x": 10,
+            "y": 5
+          },
+          "hideTimeOverride": true,
+          "id": 6,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntAirSelEnabl",
+              "label": "AS",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntAirSelEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "0.9,1.1,2.1",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "",
+          "type": "singlestat",
+          "valueFontSize": "50%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "no AirSelect",
+              "value": "null"
+            },
+            {
+              "op": "=",
+              "text": "AirSelect",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "AirSelect",
+              "value": "2"
+            },
+            {
+              "op": "=",
+              "text": "no AirSelect",
+              "value": "0"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "#5195ce",
+            "rgb(119, 119, 119)",
+            "rgb(119, 119, 119)"
+          ],
+          "datasource": "OpenNMS Performance",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 2,
+            "x": 14,
+            "y": 5
+          },
+          "hideTimeOverride": true,
+          "id": 12,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntAirMaxTdd",
+              "label": "TDD",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntAirMaxEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "1.1,2.1",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "",
+          "type": "singlestat",
+          "valueFontSize": "50%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "no TDD",
+              "value": "null"
+            },
+            {
+              "op": "=",
+              "text": "TDD",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "TDD",
+              "value": "2"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "#5195ce",
+            "rgb(119, 119, 119)",
+            "rgb(119, 119, 119)"
+          ],
+          "datasource": "OpenNMS Performance",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 2,
+            "x": 16,
+            "y": 5
+          },
+          "hideTimeOverride": true,
+          "id": 4,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntWlStatWdsEnabl",
+              "label": "WDS",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntWlStatEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "1.1,2.1",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "",
+          "type": "singlestat",
+          "valueFontSize": "50%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            },
+            {
+              "op": "=",
+              "text": "WDS",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "WDS",
+              "value": "2"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "#5195ce",
+            "rgb(119, 119, 119)",
+            "rgb(119, 119, 119)"
+          ],
+          "datasource": "OpenNMS Performance",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 2,
+            "x": 18,
+            "y": 5
+          },
+          "hideTimeOverride": true,
+          "id": 5,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntRadioDfsEnabl",
+              "label": "DFS",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntRadioEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "1.1,2.1",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "",
+          "type": "singlestat",
+          "valueFontSize": "50%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            },
+            {
+              "op": "=",
+              "text": "DFS",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "DFS",
+              "value": "2"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": true,
+          "colors": [
+            "#5195ce",
+            "rgb(119, 119, 119)",
+            "rgb(119, 119, 119)"
+          ],
+          "datasource": "OpenNMS Performance",
+          "format": "none",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 4,
+            "x": 20,
+            "y": 5
+          },
+          "hideTimeOverride": true,
+          "id": 8,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntWlStatApRep",
+              "label": "AP",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntWlStatEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "1.1,2.1",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "",
+          "type": "singlestat",
+          "valueFontSize": "50%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            },
+            {
+              "op": "=",
+              "text": "AP Repeater",
+              "value": "1"
+            },
+            {
+              "op": "=",
+              "text": "AP Repeater",
+              "value": "2"
+            }
+          ],
+          "valueName": "avg"
+        }
+      ],
+      "repeat": null,
+      "title": "Options",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 43,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 0,
+            "y": 9
+          },
+          "id": 1,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "D",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntWlStatSignal",
+              "label": "Strength",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntWlStatEntry[1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntWlStatNoisFloor",
+              "label": "Noise Floor",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "ubntWlStatEntry[1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntWlStatRssi",
+              "label": "Receive Signal Strength",
+              "nodeId": "$node",
+              "refId": "C",
+              "resourceId": "ubntWlStatEntry[1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntRadioTxPower",
+              "label": "Transmit Power",
+              "nodeId": "$node",
+              "refId": "E",
+              "resourceId": "ubntRadioEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Signals",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "dBm",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 8,
+            "y": 9
+          },
+          "id": 22,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "G",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntRadioRssi",
+              "label": "RSSI 1.1",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntRadioRssiEntry[1.1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntRadioRssiExt",
+              "label": "RSSIExt 1.1",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "ubntRadioRssiEntry[1.1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntRadioRssi",
+              "label": "RSSI 1.2",
+              "nodeId": "$node",
+              "refId": "C",
+              "resourceId": "ubntRadioRssiEntry[1.2]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntRadioRssiExt",
+              "label": "RSSIExt 1.2",
+              "nodeId": "$node",
+              "refId": "D",
+              "resourceId": "ubntRadioRssiEntry[1.2]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntRadioRssiMgmt",
+              "label": "RSSI MGMT 1.1",
+              "nodeId": "$node",
+              "refId": "E",
+              "resourceId": "ubntRadioRssiEntry[1.1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntRadioRssiMgmt",
+              "label": "RSSI MGMT 1.2",
+              "nodeId": "$node",
+              "refId": "F",
+              "resourceId": "ubntRadioRssiEntry[1.2]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Radio RSSI",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 16,
+            "y": 9
+          },
+          "id": 17,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "F",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntAirMaxCapacity",
+              "label": "Capacity",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntAirMaxEntry[1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntAirMaxQuality",
+              "label": "Quality",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "ubntAirMaxEntry[1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntAirMaxAirtime",
+              "hide": true,
+              "label": "AirtimeRaw",
+              "nodeId": "$node",
+              "refId": "C",
+              "resourceId": "ubntAirMaxEntry[1]",
+              "type": "attribute"
+            },
+            {
+              "expression": "AirtimeRaw / 10",
+              "hide": false,
+              "label": "Airtime",
+              "refId": "D",
+              "type": "expression"
+            },
+            {
+              "attribute": "ubntWlStatCcq",
+              "label": "CCQ",
+              "nodeId": "$node",
+              "refId": "E",
+              "resourceId": "ubntWlStatEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "AirMax Stats",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {
+            "totalraw": "#bf1b00"
+          },
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 0,
+            "y": 19
+          },
+          "id": 29,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Buffer",
+              "stack": "A"
+            },
+            {
+              "alias": "Free",
+              "stack": "A"
+            },
+            {
+              "alias": "Cache",
+              "stack": "A"
+            },
+            {
+              "alias": "Used",
+              "stack": "A"
+            },
+            {
+              "alias": "Total",
+              "zindex": 3
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "F",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntMemTotal",
+              "hide": false,
+              "label": "Total",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "nodeSnmp[]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntMemFree",
+              "label": "Free",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "nodeSnmp[]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntMemCache",
+              "label": "Cache",
+              "nodeId": "$node",
+              "refId": "C",
+              "resourceId": "nodeSnmp[]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntMemBuffer",
+              "label": "Buffer",
+              "nodeId": "$node",
+              "refId": "D",
+              "resourceId": "nodeSnmp[]",
+              "type": "attribute"
+            },
+            {
+              "expression": "Total-Buffer-Free-Cache",
+              "label": "Used",
+              "refId": "E",
+              "type": "expression"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Memory Stats",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "deckbytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 8,
+            "y": 19
+          },
+          "id": 28,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Down",
+              "transform": "negative-Y"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "D",
+              "type": "filter"
+            },
+            {
+              "attribute": "loadValue",
+              "label": "1 Minute",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "loadEntry[1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "loadValue",
+              "label": "5 Minute",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "loadEntry[2]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "loadValue",
+              "label": "15 Minute",
+              "nodeId": "$node",
+              "refId": "C",
+              "resourceId": "loadEntry[3]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Load",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 8,
+            "x": 16,
+            "y": 19
+          },
+          "id": 21,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntWlStatStaCount",
+              "label": "Stations",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntWlStatEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Station Count",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 0,
+              "format": "none",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 6,
+            "x": 0,
+            "y": 29
+          },
+          "id": 30,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Free",
+              "stack": "A"
+            },
+            {
+              "alias": "Used",
+              "stack": "A"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "D",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntSwapFree",
+              "label": "Free",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "nodeSnmp[]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntSwapTotal",
+              "label": "Total",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "nodeSnmp[]",
+              "type": "attribute"
+            },
+            {
+              "expression": "Total-Free",
+              "label": "Used",
+              "refId": "C",
+              "type": "expression"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Swap",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 6,
+            "x": 6,
+            "y": 29
+          },
+          "id": 18,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntHostTemperature",
+              "label": "Temperature",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "nodeSnmp[]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Temperature",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "celsius",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 6,
+            "x": 12,
+            "y": 29
+          },
+          "id": 19,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "C",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntGpsSatsVis",
+              "label": "Visable",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "nodeSnmp[]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntGpsSatsTrack",
+              "label": "Tracked",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "nodeSnmp[]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "GPS Satelites",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "none",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 10,
+            "w": 6,
+            "x": 18,
+            "y": 29
+          },
+          "id": 23,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Down",
+              "transform": "negative-Y"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "C",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntAirSyncDownUtil",
+              "label": "Down",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "ubntAirSyncEntry[1]",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntAirSyncUpUtil",
+              "label": "Up",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "ubntAirSyncEntry[1]",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "AirSync Utilization",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        }
+      ],
+      "repeat": null,
+      "title": "Metrics",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 44,
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 8,
+            "x": 0,
+            "y": 7
+          },
+          "id": 35,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "D",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntStaLocalCINR",
+              "label": "Local CINR",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "$station",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntStaSignal",
+              "label": "Signal",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "$station",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntStaNoiseFloor",
+              "label": "Noise Floor",
+              "nodeId": "$node",
+              "refId": "C",
+              "resourceId": "$station",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Signals",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 0,
+              "format": "dBm",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 8,
+            "x": 8,
+            "y": 7
+          },
+          "id": 33,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Received",
+              "transform": "negative-Y"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "C",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntStaRxBytes",
+              "label": "Received",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "$station",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntStaTxBytes",
+              "label": "Transmitted",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "$station",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "In / Out transfered bytes",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "bytes",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 8,
+            "x": 16,
+            "y": 7
+          },
+          "id": 38,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Receive",
+              "transform": "negative-Y"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "C",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntStaRxCapacity",
+              "label": "Receive",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "$station",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntStaTxCapacity",
+              "label": "Transmit",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "$station",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "In / Out Capacities",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "KBs",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "OpenNMS Performance",
+          "decimals": null,
+          "format": "lengthm",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 2,
+            "x": 0,
+            "y": 15
+          },
+          "hideTimeOverride": true,
+          "id": 37,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntStaDistance",
+              "hide": false,
+              "label": "Distance",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "$station",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "Distance",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 7,
+            "x": 2,
+            "y": 15
+          },
+          "id": 32,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "30000000",
+                "stripNaNs": "true"
+              },
+              "refId": "D",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntStaAmc",
+              "label": "Capacity",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "$station",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntStaAmq",
+              "label": "Quality",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "$station",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntStaCcq",
+              "hide": true,
+              "label": "CCQraw",
+              "nodeId": "$node",
+              "refId": "E",
+              "resourceId": "$station",
+              "type": "attribute"
+            },
+            {
+              "expression": "CCQraw / 10",
+              "label": "CCQ",
+              "refId": "C",
+              "type": "expression"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "AirMax Stats",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "format": "percent",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 7,
+            "x": 9,
+            "y": 15
+          },
+          "id": 39,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "A",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntStaTxLatency",
+              "label": "Latency",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "$station",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "Uplink Latency",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 0,
+              "format": "ms",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "dashLength": 10,
+          "dashes": false,
+          "datasource": "OpenNMS Performance",
+          "fill": 1,
+          "gridPos": {
+            "h": 8,
+            "w": 8,
+            "x": 16,
+            "y": 15
+          },
+          "id": 36,
+          "legend": {
+            "alignAsTable": true,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 1,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "Receive",
+              "transform": "negative-Y"
+            }
+          ],
+          "spaceLength": 10,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "E",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntStaTxAirtime",
+              "hide": true,
+              "label": "Transmitraw",
+              "nodeId": "$node",
+              "refId": "B",
+              "resourceId": "$station",
+              "type": "attribute"
+            },
+            {
+              "attribute": "ubntStaRxAirtime",
+              "hide": true,
+              "label": "Receiveraw",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "$station",
+              "type": "attribute"
+            },
+            {
+              "expression": "Transmitraw / 10",
+              "label": "Transmit",
+              "refId": "C",
+              "type": "expression"
+            },
+            {
+              "expression": "Receiveraw / 10",
+              "label": "Receive",
+              "refId": "D",
+              "type": "expression"
+            }
+          ],
+          "thresholds": [],
+          "timeFrom": null,
+          "timeShift": null,
+          "title": "AirTime",
+          "tooltip": {
+            "shared": true,
+            "sort": 0,
+            "value_type": "individual"
+          },
+          "type": "graph",
+          "xaxis": {
+            "buckets": null,
+            "mode": "time",
+            "name": null,
+            "show": true,
+            "values": []
+          },
+          "yaxes": [
+            {
+              "decimals": 0,
+              "format": "percent",
+              "label": "",
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": true
+            },
+            {
+              "format": "short",
+              "label": null,
+              "logBase": 1,
+              "max": null,
+              "min": null,
+              "show": false
+            }
+          ],
+          "yaxis": {
+            "align": false,
+            "alignLevel": null
+          }
+        },
+        {
+          "cacheTimeout": null,
+          "colorBackground": false,
+          "colorValue": false,
+          "colors": [
+            "#299c46",
+            "rgba(237, 129, 40, 0.89)",
+            "#d44a3a"
+          ],
+          "datasource": "OpenNMS Performance",
+          "decimals": null,
+          "format": "s",
+          "gauge": {
+            "maxValue": 100,
+            "minValue": 0,
+            "show": false,
+            "thresholdLabels": false,
+            "thresholdMarkers": true
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 2,
+            "x": 0,
+            "y": 19
+          },
+          "hideTimeOverride": true,
+          "id": 40,
+          "interval": null,
+          "links": [],
+          "mappingType": 1,
+          "mappingTypes": [
+            {
+              "name": "value to text",
+              "value": 1
+            },
+            {
+              "name": "range to text",
+              "value": 2
+            }
+          ],
+          "maxDataPoints": 100,
+          "nullPointMode": "connected",
+          "nullText": null,
+          "postfix": "",
+          "postfixFontSize": "50%",
+          "prefix": "",
+          "prefixFontSize": "50%",
+          "rangeMaps": [
+            {
+              "from": "null",
+              "text": "N/A",
+              "to": "null"
+            }
+          ],
+          "sparkline": {
+            "fillColor": "rgba(31, 118, 189, 0.18)",
+            "full": false,
+            "lineColor": "rgb(31, 120, 193)",
+            "show": false
+          },
+          "tableColumn": "",
+          "targets": [
+            {
+              "filter": {
+                "backend": "Java",
+                "canonicalName": "org.opennms.netmgt.measurements.filters.impl.Chomp",
+                "description": "Strips leading and trailing rows that contain nothing but NaNs/null values.",
+                "name": "Chomp",
+                "parameter": [
+                  {
+                    "default": "true",
+                    "description": "When set, leading and trailing rows containing NaNs will be removed",
+                    "displayName": "Strip",
+                    "key": "stripNaNs",
+                    "required": false,
+                    "type": "boolean"
+                  },
+                  {
+                    "default": "0",
+                    "description": "Timestamp in milliseconds. Any rows before this time will be removed.",
+                    "displayName": "Cutoff",
+                    "key": "cutoffDate",
+                    "required": false,
+                    "type": "double"
+                  }
+                ]
+              },
+              "filterParameters": {
+                "cutoffDate": "300000",
+                "stripNaNs": "true"
+              },
+              "refId": "B",
+              "type": "filter"
+            },
+            {
+              "attribute": "ubntStaConnTime",
+              "hide": false,
+              "label": "ConnectionTime",
+              "nodeId": "$node",
+              "refId": "A",
+              "resourceId": "$station",
+              "type": "attribute"
+            }
+          ],
+          "thresholds": "",
+          "timeFrom": "10m",
+          "timeShift": null,
+          "title": "Connection Uptime",
+          "type": "singlestat",
+          "valueFontSize": "80%",
+          "valueMaps": [
+            {
+              "op": "=",
+              "text": "N/A",
+              "value": "null"
+            }
+          ],
+          "valueName": "avg"
+        }
+      ],
+      "repeat": null,
+      "title": "Station List",
+      "type": "row"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 16,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_OPENNMS_PERFORMANCE}",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "node",
+        "options": [],
+        "query": "nodeFilter((nodeSysOID LIKE '.1.3.6.1.4.1.10002.1' | nodeSysOID LIKE '.1.3.6.1.4.1.41112.1.4' ) & serviceName like 'SNMP')",
+        "refresh": 1,
+        "regex": "",
+        "sort": 3,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_OPENNMS_PERFORMANCE}",
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "station",
+        "options": [],
+        "query": "nodeResources($node)",
+        "refresh": 1,
+        "regex": "^ubntStaEntry.*",
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "timezone": "",
+  "title": "OpenNMS Ubiquiti AirMax",
+  "uid": "000000001",
+  "version": 65,
+  "description": "Overview board for AirMax devices"
+}
