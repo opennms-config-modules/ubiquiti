@@ -45,3 +45,14 @@ cp ${HOME}/opennms-config-workspace/ubiquiti/graphs/*.properties ${OPENNMS_HOME}
 == Grafana ==
 
 Import dashboard https://grafana.com/dashboards/6498[6498].
+
+== Known Issues ==
+
+Ubiquiti does not use SNMP compliant. Therefore OpenNMS settings are necessary to collect metrics.
+
+Create a property file:
+
+`$ONMS_HOME/opennms.properties.d/allowSNMPv2InV1.properties`
+
+with content:
+`org.opennms.snmp.snmp4j.allowSNMPv2InV1=true`
